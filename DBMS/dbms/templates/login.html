@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    User Login
+{% endblock %}
+
+{% block content %}
+    {% if err_msg %}
+        
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            {{err_msg}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        
+    {% endif %}
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="submit">Login</button>
+    </form>
+    
+{% endblock %}
